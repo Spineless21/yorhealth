@@ -1,0 +1,42 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Environment and secrets
+.env
+.env.*
+*.local
+*.secret
+secrets.*
+
+# Supabase local runtime
+supabase/.branches
+supabase/.temp
+supabase/.env
+
+# Node/Python dependencies and caches
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated/exported document render folders
+tmp/
+render_current/
+rendered_contract_review/
+docs/_ats_board_render/
+docs/_ats_living_render/
+.tmp_brochure_pkgs/
+.tmp_docx_render_pkgs/
+
+# Generated marketing/output assets
+output/
+outputs/
+edited_photos/
+
+# Large generated previews can be recreated
+*_page-*.png
+current_template*.png
