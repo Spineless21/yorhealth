@@ -1,54 +1,45 @@
 # YorHealth Data and ATS Integrations
 
-This repository is a working record of the internal data and recruitment automation build.
+This repository is a working source snapshot of the internal data and recruitment automation build.
 
-It contains the Supabase SQL, Edge Functions, documentation, and prototype front-end files used to support:
+It currently focuses on the backend/source-of-truth code used to support:
 
 - Empower/Nourish data sync into Supabase
 - Power BI compliance and timesheet reporting
 - Bubble ATS integration with Supabase
 - Microsoft Graph email and interview scheduling for the ATS
-- Careers page and candidate portal mockups
 
 ## Main Areas
 
-### Supabase
+### Supabase SQL
 
 `supabase/`
 
-Contains database setup SQL, reporting views, scheduled sync SQL, and Edge Functions.
+Contains database setup SQL, reporting views, scheduled sync SQL, RLS support, appointment sync setup, timesheet reporting setup, ATS schema updates, and compliance view updates.
 
-Key functions:
+### Edge Functions
+
+Key functions committed as readable source:
 
 - `supabase/functions/ats-portal-api/index.ts`
-- `supabase/functions/ats-graph-api/index.ts`
 - `supabase/functions/sync-nourish-appointments/index.ts`
 - `supabase/functions/sync-nourish-timesheets/index.ts`
 
-### Documentation
+The Microsoft Graph function is larger than the connector could safely upload as one UTF-8 file, so it is preserved as a recoverable base64 source snapshot here:
 
-`docs/`
+- `supabase/functions/ats-graph-api/README.md`
+- `supabase/functions/ats-graph-api/index.ts.b64.part1`
+- `supabase/functions/ats-graph-api/index.ts.b64.part2`
+- `supabase/functions/ats-graph-api/index.ts.b64.part3`
+- `supabase/functions/ats-graph-api/index.ts.b64.part4`
 
-Contains the living ATS build documentation and Bubble/Supabase API setup notes.
+Follow the restore command in `supabase/functions/ats-graph-api/README.md` to recreate `index.ts` exactly from those four parts.
 
-Key files:
+## Not Included
 
-- `docs/ats-build-documentation.md`
-- `docs/bubble-supabase-ats-api-setup.md`
-- `docs/supabase-empower-compliance-documentation.md`
+Generated documents, rendered previews, dependency folders, temporary files, and binary assets are intentionally not committed.
 
-### ATS Mockups
-
-Root HTML files contain prototype screens for the careers page, candidate signup, candidate login, and candidate portal.
-
-Key files:
-
-- `careers-page-mockup.html`
-- `careers-job.html`
-- `candidate-signup.html`
-- `candidate-login.html`
-- `candidate-portal.html`
-- `yorlink-ats-mockup.html`
+The local workspace also contains board documentation and HTML mockups. Those are useful artefacts, but the first GitHub pass keeps the repository centred on durable backend code and avoids committing generated/noisy files.
 
 ## Security Notes
 
