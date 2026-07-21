@@ -1,0 +1,5 @@
+[functions.ats-portal-api]
+verify_jwt = false
+
+[functions.ats-graph-api]
+verify_jwt = false
