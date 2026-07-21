@@ -6,11 +6,13 @@ The connector used for this repository snapshot clipped very large text payloads
 
 - `index.ts.b64.part1`
 - `index.ts.b64.part2`
+- `index.ts.b64.part3`
+- `index.ts.b64.part4`
 
-To restore the file locally, concatenate both files in order and decode from base64:
+To restore the file locally, concatenate all four files in order and decode from base64:
 
 ```powershell
-Get-Content .\index.ts.b64.part1, .\index.ts.b64.part2 -Raw | Set-Content .\index.ts.b64
+Get-Content .\index.ts.b64.part1, .\index.ts.b64.part2, .\index.ts.b64.part3, .\index.ts.b64.part4 -Raw | Set-Content .\index.ts.b64
 [IO.File]::WriteAllBytes("index.ts", [Convert]::FromBase64String((Get-Content .\index.ts.b64 -Raw)))
 ```
 
